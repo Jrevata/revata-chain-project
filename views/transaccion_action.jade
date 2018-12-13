@@ -1,0 +1,117 @@
+doctype html
+html(lang='en')
+    head
+        // ========== Meta Tags ==========
+        meta(charset='UTF-8')
+        meta(name='description', content='Cocoon -Portfolio')
+        meta(name='keywords', content='Cocoon , Portfolio')
+        meta(name='author', content='Pharaohlab')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // ========== Title ==========
+        title Servicios
+        // ========== Favicon Ico ==========
+        // <link rel="icon" href="fav.ico">
+        // ========== STYLESHEETS ==========
+        // Bootstrap CSS
+        link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Fonts Icon CSS
+        link(href='stylesheets/font-awesome.min.css', rel='stylesheet')
+        link(href='stylesheets/et-line.css', rel='stylesheet')
+        link(href='stylesheets/ionicons.min.css', rel='stylesheet')
+        // Carousel CSS
+        link(href='stylesheets/slick.css', rel='stylesheet')
+        // Magnific-popup
+        link(rel='stylesheet', href='stylesheets/magnific-popup.css')
+        // Animate CSS
+        link(rel='stylesheet', href='stylesheets/animate.min.css')
+        // Custom styles for this template
+        link(href='stylesheets/main.css', rel='stylesheet')
+    body
+        .loader
+            .loader-outter
+            .loader-inner
+        .body-container.container-fluid
+       
+            a.menu-btn(href='javascript:void(0)')
+                i.ion.ion-grid
+            
+            .row.justify-content-center
+               
+                .col-lg-2.col-md-3.col-12.menu_block(style='background: black')
+               
+                    .logo_box
+                        a(href='/news_listar')
+                            img(src='images/logo.png', alt='cocoon')
+                    
+                    .side_menu_section
+                        ul.menu_nav
+                            li.active
+                                a(href='/news_listar' ) Home 
+                            li
+                                a(href='/getCertificados/' ) Certificados
+                            li
+                                a(href='/new_noticia' ) Transacciones
+                    .side_menu_section
+                        ul.menu_nav
+                           
+                            li
+                                a(href='/new_noticia' ) Log Out  
+                
+                .col-lg-10.col-md-9.col-12.body_block.align-content-center
+                    div
+                        .img_card
+                            .row.justify-content-center
+                                .col-md-6.col-7.content_section
+                                    .content_box
+                                        .content_box_inner
+                                            h3 Transacción
+                                            .row.justify-content-center
+                                                form(method="POST" , action="/transaccion")    
+                                                    .col-md-12.col-12
+                                                        table.table.dark-table(style="color:black;")
+                                                            thead
+                                                                th 
+                                                                    center Código único
+                                                                th 
+                                                                    center Nombre responsable
+                                                                
+                                                                th 
+                                                                    center Elección
+                                                            tbody
+                                                                for items in datos
+                                                                    tr
+                                                                        td= items.idcertificados
+                                                                        td= items.nombreRepresentante       
+                                                                        td
+                                                                            input.form-control(type="radio", name="idCertificado", value="#{items.idcertificados}")
+                                                                            
+                                                    .col-md-12.col-12
+                                                        input(type="hidden", name="idParticipante" , value='#{id}')
+                                                        center
+                                                            button.btn.btn-primary(type='submit') Guardar
+                                                                     
+                                                    
+                                                            
+                                                            
+                                .col-md-6.col-5.img_section(style="background-image: url('images/bg/service_bg.png');")
+        // =================== image card end here ====================
+        // =================== content body end ====================
+        // jquery
+        script(src='javascripts/jquery.min.js')
+        // bootstrap
+        script(src='javascripts/popper.js')
+        script(src='javascripts/bootstrap.min.js')
+        script(src='javascripts/js/waypoints.min.js')
+        // slick carousel
+        script(src='javascripts/slick.min.js')
+        // Portfolio Filter
+        script(src='javascripts/imgloaded.js')
+        script(src='javascripts/isotope.js')
+        // Magnific-popup
+        script(src='javascripts/jquery.magnific-popup.min.js')
+        // Counter
+        script(src='javascripts/jquery.counterup.min.js')
+        // WOW JS
+        script(src='javascripts/wow.min.js')
+        // Custom js
+        script(src='javascripts/main.js')

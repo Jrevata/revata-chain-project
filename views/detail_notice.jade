@@ -1,0 +1,129 @@
+doctype html
+html(lang='en')
+    head
+        // ========== Meta Tags ==========
+        meta(charset='UTF-8')
+        meta(name='description', content='Cocoon -Portfolio')
+        meta(name='keywords', content='Cocoon , Portfolio')
+        meta(name='author', content='Pharaohlab')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        // ========== Title ==========
+        title Nosotros
+        // ========== Favicon Ico ==========
+        // <link rel="icon" href="fav.ico">
+        // ========== STYLESHEETS ==========
+        // Bootstrap CSS
+        link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Fonts Icon CSS
+        link(href='stylesheets/font-awesome.min.css', rel='stylesheet')
+        link(href='stylesheets/et-line.css', rel='stylesheet')
+        link(href='stylesheets/ionicons.min.css', rel='stylesheet')
+        // Carousel CSS
+        link(href='stylesheets/slick.css', rel='stylesheet')
+        // Magnific-popup
+        link(rel='stylesheet', href='stylesheets/magnific-popup.css')
+        // Animate CSS
+        link(rel='stylesheet', href='stylesheets/animate.min.css')
+        // Custom styles for this template
+        link(href='stylesheets/main.css', rel='stylesheet')
+    body
+        .loader
+            .loader-outter
+            .loader-inner
+        .body-container.container-fluid
+            a.menu-btn(href='javascript:void(0)')
+                i.ion.ion-grid
+            .row.justify-content-center
+                // =================== side menu ====================
+                .col-lg-2.col-md-3.col-12.menu_block(style='background: black')
+                    // logo
+                    .logo_box
+                        a(href='/news_listar')
+                            img(src='images/logo.png', alt='cocoon')
+                    // logo end
+                    // main menu
+                    .side_menu_section
+                        ul.menu_nav
+                            li
+                                a(href='/news_listar') Home
+                            li
+                                a(href='/new_noticia') Nueva Noticia
+                            
+                // main menu end
+                // =================== side menu end====================
+                // =================== content body ====================
+                .col-lg-10.col-md-9.col-12.body_block.align-content-center
+                    div
+                        .img_card
+                            .row.justify-content-center
+                                .col-md-6.col-7.content_section
+                                    .content_box
+                                        .content_box_inner
+                                            div
+                                                h1= data.titulo
+                                                h4= data.categoria
+                                                h6= data.fecha
+                                                p= data.descripcion
+                                                .row
+                                                    .col-lg-6.col-12
+                                                        center
+                                                            a.btn.btn-success(href='/news_detail/update/#{data._id}') Edit Notice
+                                                    .col-lg-6.col-12
+                                                        center
+                                                            a.btn.btn-success( href='/news_remove/#{data._id}' onClick="return confirm('¿Estás seguro de eliminarlo?');" ) Remove Notice                                                                                                                                               
+                                                br
+                                                br
+                                                h3 Comentarios
+
+                                                if data.comentarios
+                                                    .testimonial_carousel.mt50
+                                                        for items in data.comentarios
+                                                            .testimonial_box
+                                                                p= items.mensaje
+                                                                .testimonial_author
+                                                                    
+                                                                    h5= items.autor
+                                                                    p Fecha :
+                                                                        span= items.fecha
+                                                .pt50
+                                                    .row.justify-content-center
+                                                        .col-12.col-md-4
+                                                            .counter_box
+                                                                .divider
+                                                                span.counter #{data.comentarios.length}
+                                                                h5 Comentarios
+                                            br
+                                            div
+                                                h3 Deja tu comentario
+                                                form#my-form(method='POST', action='/comment_create/#{data._id}')
+                                                    .mt75.row.justify-content-center
+                                                        .col-12
+                                                            input#Input01.form-control(type='text', placeholder='Autor', required=true, name='autor')
+                                                       
+                                                        .col-12
+                                                            textarea#Input06.form-control(placeholder='Mensaje', cols='2', rows='1' , name='mensaje' required=true)
+                                                        .col-12
+                                                            center
+                                                                button.btn.btn-primary(type='submit') Guardar            
+                                                // =================== counter end====================
+                                .col-md-6.col-5.img_section(style="background-image: url('images/bg/about.png');")
+                // =================== content body end ====================
+                // jquery
+        script(src='javascripts/jquery.min.js')
+        // bootstrap
+        script(src='javascripts/popper.js')
+        script(src='javascripts/bootstrap.min.js')
+        script(src='javascripts/waypoints.min.js')
+        // slick carousel
+        script(src='javascripts/slick.min.js')
+        // Portfolio Filter
+        script(src='javascripts/imgloaded.js')
+        script(src='javascripts/isotope.js')
+        // Magnific-popup
+        script(src='javascripts/jquery.magnific-popup.min.js')
+        // Counter
+        script(src='javascripts/jquery.counterup.min.js')
+        // WOW JS
+        script(src='javascripts/wow.min.js')
+        // Custom js
+        script(src='javascripts/main.js')
